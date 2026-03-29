@@ -84,10 +84,11 @@ body {
 
 .battle-menu {
   position: fixed;
+  width: 100%;
   bottom: 0;
   left: 0;
   right: 0;
-  display: none; /* was "nont" */
+  display: grid; /* was "nont" */
   grid-template-columns: repeat(4, 1fr);
   gap: 8px;
   padding: 12px;
@@ -105,8 +106,6 @@ body {
   background: #1a1a1a;
   border: 2px solid #444;
   cursor: pointer;
-  width: 25%;
-  display: block;
 }
 
 .menu-btn:hover {
@@ -186,8 +185,11 @@ body {
   text-transform: uppercase;
   z-index: 50;
   pointer-events: none;
-  white-space: nowrap;
+  white-space: normal;
+  word-wrap: break-word;
+  max-width: 100%;
 }
+
 #winner-narration {
   position: fixed;
   top: 50%;
@@ -197,11 +199,12 @@ body {
   font-size: 2.8rem;
   font-weight: bold;
   letter-spacing: 4px;
+  background: transparent;
+  border:none;
   color: #fff;
   text-shadow: 0 0 8px rgba(0,0,0,0.9), 2px 2px 0 #000;
   text-align: center;
   text-transform: uppercase;
   z-index: 50;
-  pointer-events: none;
   white-space: nowrap;
 }

@@ -3,7 +3,7 @@ import {Moves} from "./moves.js";
 
 const difficultySettings = {
     "easy": {
-        health: 1,  
+        health: 100,  
         damageMultiplier: 10,
         successChance: .5,
     },
@@ -32,8 +32,8 @@ export class Enemy extends Fighter {
         this.enemyType = enemyType;
     }   
 
-    chooseMove(){
-        return this.moves[Math.floor(Math.random() * this.moves.length)];
+    async chooseMove(){
+      return this.moves[Math.floor(Math.random() * this.moves.length)];
     }
 
     isMoveSuccessful() {

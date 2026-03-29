@@ -1,4 +1,5 @@
 import { Fighter } from "./fighter.js";
+import {Moves} from "./moves.js";
 
 async function getAllQuestions() {
   const result = await fetch('/get_questions', {
@@ -28,8 +29,6 @@ export class Player extends Fighter {
   }
 
   async chooseMove() {
-    document.getElementsByClassName("battle-menu")[0].style.display = 'flex';
-
     return new Promise(resolve => {
       const controller = new AbortController();
       const moveButtons = Array.from(document.getElementsByClassName("menu-btn"));
@@ -37,8 +36,9 @@ export class Player extends Fighter {
       moveButtons.forEach(button => {
         button.addEventListener('click', () => {
           controller.abort(); // removes ALL listeners at once
-          document.getElementsByClassName("battle-menu")[0].style.display = 'grid';
-          resolve(button.id);
+
+          const move = Moves[button.id]
+          resolve(move);
         }, { signal: controller.signal });
       });
     });

@@ -25,7 +25,7 @@
   </div>
 
   <span id = "move-narration"></span>
-  <span id = "winner-narration"></span>
+  <button id = "winner-narration"></button>
 
   <img id="bao" src="../images/Bao.png" alt="Bao the mascot">
   <img id="enemy" src="../images/job_application.png" alt="Enemy">
@@ -53,18 +53,26 @@
     import { Player } from "./player.js";
     import {Game} from "./main_game.js";
  
+    const sleep = (ms) => new Promise(resolve => setTimeout(resolve, ms));
+
     document.getElementById("winner-narration").style.display = "none";
     document.getElementById("winner-narration").addEventListener('click', () => {
       location.href = "/";
       document.getElementById("winner-narration").style.display = "none";
     })
-    
+
+    document.getElementById("battle-menu").style.display = "none";
+
+    for (let i = 3; i >=0; i--) {
+      document.getElementById("move-narration").textContent = `Starting Battle In: ${i}`;
+      await sleep(1000);
+    };
+
     const newGame = new Game();
     newGame.reset();
-    newGame.startFight();
+    await newGame.startFight();
+    console.log("game ended")
     newGame.showWinner();
     </script>
 </body>
 </html>
-    
-    document.getElementById("winner-narration").getcliock

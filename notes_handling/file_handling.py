@@ -9,6 +9,7 @@ app = Flask(__name__, static_folder=root_dir, static_url_path='')
 UPLOAD_FOLDER = os.path.join(base_dir, 'uploads')
 
 files_dict = {}
+generated_for = {}
 
 try:
     os.makedirs(UPLOAD_FOLDER, exist_ok=False)
@@ -24,11 +25,15 @@ def index():
 def question_upload_progress():
     data = request.get_json()
     fileName = data["filename"]
+
+    if generated_for.get(fileName):
+        return "Success"
+    
     numQuestions = data["numberOfQuestions"]
     file = files_dict.get(fileName)
 
-    # add support question type and question difficulty after the hackothon
     questions_handling.add_questions(file, number_of_questions=int(numQuestions))
+    generated_for[fileName] = file
 
     return "Success"
 
@@ -45,12 +50,12 @@ def upload_file():
     file_names = []
 
     for file in files:
-        if os.path.exists(os.path.join(UPLOAD_FOLDER, file.filename)):
-            print("file already exists:", file.filename)
+        file_names.append(file.filename)
+
+        if files_dict.get(file.filename):
             continue
 
         file.save(os.path.join(UPLOAD_FOLDER, file.filename))
-        file_names.append(file.filename)
         files_dict[file.filename] = file
 
     if len(file_names) == 0:
