@@ -1,0 +1,28 @@
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
+body {
+  background-image: url(images/battle_background.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+#bao {
+  width: 20rem;
+  position: absolute;
+  rotate: 25deg;
+  margin-top: 50vh;
+  margin-left: 8vw
+}
+
+#enemy {
+  width: 15rem;
+  position: absolute;
+  margin-top: 9vh;
+  right: 10vw;
+}

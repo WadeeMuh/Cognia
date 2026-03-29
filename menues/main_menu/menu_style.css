@@ -1,0 +1,62 @@
+header h1{
+    text-align: center;
+    font-family: 'pixelify sans';
+    font-size: 100px;
+    color: #e4d745;
+}
+.bio{
+    text-align: center;
+    color: white;
+    font-family: 'Quantico';
+    font-size: 20px;
+    margin: 0;
+}
+#top{
+    background-image: url("images/Hackathon_background-pixelated.png");
+    background-size: cover;
+    margin: 0;
+    padding: 1em;
+}
+body{
+    background-image: url('images/Hackathon_wall-pixelated.png');
+    background-size: cover;
+}
+#hero{
+    display: inline-block;
+    text-align: center;
+    border-top-left-radius: 8px;
+    border-top-right-radius: 4px;
+    border-bottom-left-radius: 4px;
+    background-color: #e4d745;
+    align-content: center;
+    margin: 0 auto;
+    border-right: 6px solid #ccc138;
+    border-bottom: 6px solid #a59c31;
+    text-decoration: none;
+    color: black;
+    font-family: 'Pixelify Sans', sans-serif;
+    font-weight: bold;
+    align-content: center;
+}
+nav{
+    text-align: center;
+    padding: 1.5em;
+    border-radius: 4px;
+    background-color: #e4d745;
+    align-content: center;
+}
+nav ul{
+    margin: 0;
+    padding: 0;
+}
+#hero li{
+    text-align: center;
+    list-style: none;
+    font-size: 3em;
+}
+
+#file-upload{
+    width: 25%;
+    align-content: center;
+    text-align: center;
+}
