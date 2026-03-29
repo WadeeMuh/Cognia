@@ -4,7 +4,7 @@ html, body {
 }
 
 body {
-  background-image: url(images/battle_background.png);
+  background-image: url(../images/battle_background.png);
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -12,12 +12,67 @@ body {
   margin: 0;
 }
 
+.hud {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: monospace;
+  background: rgba(0, 0, 0, 0.65);
+  border: 2px solid #333;
+  padding: 8px 14px;
+  z-index: 10;
+}
+
+#enemy-hud {
+  top: 18px;
+  right: 18px;
+}
+
+#player-hud {
+  bottom: 90px;
+  left: 18px;
+}
+
+.hud-name {
+  font-size: 0.75rem;
+  font-weight: bold;
+  color: #ccc;
+  min-width: 44px;
+}
+
+.bar-wrap {
+  width: 160px;
+  height: 12px;
+  background: #2a2a2a;
+  border: 1px solid #555;
+}
+
+.bar {
+  height: 100%;
+  transition: width 0.4s ease;
+}
+
+.enemy-bar {
+  background: #c0392b;
+}
+
+.player-bar {
+  background: #27ae60;
+}
+
+.hud-hp {
+  font-size: 0.75rem;
+  color: #888;
+  min-width: 60px;
+}
+
 #bao {
   width: 20rem;
   position: absolute;
   rotate: 25deg;
   margin-top: 50vh;
-  margin-left: 8vw
+  margin-left: 8vw;
 }
 
 #enemy {
@@ -25,4 +80,128 @@ body {
   position: absolute;
   margin-top: 9vh;
   right: 10vw;
+}
+
+.battle-menu {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: none; /* was "nont" */
+  grid-template-columns: repeat(4, 1fr);
+  gap: 8px;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.75);
+  border-top: 2px solid #333;
+}
+
+.menu-btn {
+  padding: 18px 0;
+  font-size: 0.95rem;
+  font-weight: bold;
+  font-family: monospace;
+  letter-spacing: 1px;
+  color: #fff;
+  background: #1a1a1a;
+  border: 2px solid #444;
+  cursor: pointer;
+  width: 25%;
+  display: block;
+}
+
+.menu-btn:hover {
+  background: #2e2e2e;
+  border-color: #aaa;
+}
+
+.menu-btn:active {
+  background: #111;
+}
+
+#popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  display: none;
+}
+
+#popup {
+  background: #111;
+  border: 2px solid #444;
+  padding: 28px 32px;
+  width: 420px;
+  max-width: 90vw;
+  font-family: monospace;
+}
+
+#popup-question {
+  color: #fff;
+  font-size: 1rem;
+  margin: 0 0 20px 0;
+  line-height: 1.5;
+}
+
+#popup-choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+}
+
+.choice-btn {
+  padding: 12px 8px;
+  font-family: monospace;
+  font-size: 0.9rem;
+  color: #fff;
+  background: #1a1a1a;
+  border: 2px solid #444;
+  cursor: pointer;
+  text-align: left;
+}
+
+.choice-btn:hover {
+  background: #2e2e2e;
+  border-color: #aaa;
+}
+
+.choice-btn:active {
+  background: #111;
+}
+
+#move-narration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: monospace;
+  font-size: 2.8rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0,0,0,0.9), 2px 2px 0 #000;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 50;
+  pointer-events: none;
+  white-space: nowrap;
+}
+#winner-narration {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: monospace;
+  font-size: 2.8rem;
+  font-weight: bold;
+  letter-spacing: 4px;
+  color: #fff;
+  text-shadow: 0 0 8px rgba(0,0,0,0.9), 2px 2px 0 #000;
+  text-align: center;
+  text-transform: uppercase;
+  z-index: 50;
+  pointer-events: none;
+  white-space: nowrap;
 }

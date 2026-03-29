@@ -1,25 +1,26 @@
 import {Fighter} from "./fighter.js";
+import {Moves} from "./moves.js";
 
 const difficultySettings = {
     "easy": {
-        health: 100,  
-        damage: 10,
+        health: 1,  
+        damageMultiplier: 10,
         successChance: .5,
     },
     "medium": {
         health: 150,
-        damage: 15,
+        damageMultiplier: 1.5,
         successChance: .8,
     },
     "hard": {
         health: 200,
-        damage: 20,
+        damageMultiplier: 2,
         successChance: 1,
     }
 };
 
 const enemyMoves = {
-    "job": [],
+    "job-application": [Moves.Rejection, Moves.Overqualified, Moves.Homeless, Moves.Employment],
     "shower": [],
 };
 

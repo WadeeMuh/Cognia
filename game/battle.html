@@ -7,8 +7,64 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <img id = "bao" src="images/Bao.png" alt="Bao the mascot">
 
-  <img id = "enemy" src="images/job_application.png" alt="Enemy">
+  <div class="hud" id="enemy-hud">
+    <span class="hud-name">JOB APPLICATION</span>
+    <div class="bar-wrap">
+      <div class="bar enemy-bar" id="enemy-bar" style="width: 100%;"></div>
+    </div>
+    <span class="hud-hp" id="enemy-hp-text">100 / 100</span>
+  </div>
+
+  <div class="hud" id="player-hud">
+    <span class="hud-name">BAO</span>
+    <div class="bar-wrap">
+      <div class="bar player-bar" id="player-bar" style="width: 100%;"></div>
+    </div>
+    <span class="hud-hp" id="player-hp-text">100 / 100</span>
+  </div>
+
+  <span id = "move-narration"></span>
+  <span id = "winner-narration"></span>
+
+  <img id="bao" src="../images/Bao.png" alt="Bao the mascot">
+  <img id="enemy" src="../images/job_application.png" alt="Enemy">
+
+  <div id="popup-overlay">
+    <div id="popup">
+      <p id="popup-question"></p>
+      <div id="popup-choices">
+        <button class="choice-btn" id="answer1"></button>
+        <button class="choice-btn" id="answer2"></button>
+        <button class="choice-btn" id="answer3"></button>
+        <button class="choice-btn" id="answer4"></button>
+      </div>
+    </div>
+  </div>
+
+  <div class="battle-menu" id="battle-menu">
+    <button class="menu-btn" id="Big Hug" title="Deal 20 damage to the enemy!">BIG HUG</button>
+    <button class="menu-btn" id="Virus" title="Deal a random amount of damage to the enemy!">VIRUS</button>
+    <button class="menu-btn" id="Bug" title="Deal 10 damage to the enemy!">BUG</button>
+    <button class="menu-btn" id="Self Hug" title="Heal 20 health points!">SELF HUG</button>
+  </div>
+
+  <script type="module">
+    import { Player } from "./player.js";
+    import {Game} from "./main_game.js";
+ 
+    document.getElementById("winner-narration").style.display = "none";
+    document.getElementById("winner-narration").addEventListener('click', () => {
+      location.href = "/";
+      document.getElementById("winner-narration").style.display = "none";
+    })
+    
+    const newGame = new Game();
+    newGame.reset();
+    newGame.startFight();
+    newGame.showWinner();
+    </script>
 </body>
 </html>
+    
+    document.getElementById("winner-narration").getcliock

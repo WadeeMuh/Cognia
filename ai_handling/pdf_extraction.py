@@ -42,7 +42,7 @@ def extract_pdf_questions(extracted_text: str, json_structure=json_templates.mul
                 "8. EVERY question field must be filled — never leave question fields null or empty.\n"
                 "9. For multiple_choice, always generate 4 answer options where exactly one is correct.\n"
                 "10. You MUST generate exactly the number of questions requested — no more, no less.\n"
-                "11. The correct_answer field MUST be set to one of the answer keys exactly as they appear in the JSON structure (e.g., 'answer1', 'answer2', 'answer3', or 'answer4'). For example: if answer2 is correct, set correct_answer to 'answer2'. NEVER use values like '1', 'a', 'b', 'A', or the answer text itself.\n"
+                "11. The correct_answer field MUST be set to one of the answer keys exactly as they appear in the JSON structure (e.g., 'answer1', 'answer2', 'answer3', or 'answer4'). For example: if answer2 is correct, set correct_answer to the value 'answer2'. NEVER use values like '1', 'a', 'b', 'A', or the answer text itself. For example, given the following JSON: {'question': 'What is the name of the state where the Interactive Application and Video Game Development competition took place in 2025?', 'answer1': 'Ohio', 'answer2': 'California', 'answer3': 'Florida', 'correct_answer': 'answer1'}, in this case the correct_answer field is set correctly, however if it was like this JSON: {'question': 'What is the name of the state where the Interactive Application and Video Game Development competition took place in 2025?', 'answer1': 'Ohio', 'answer2': 'California', 'answer3': 'Florida', 'correct_answer': 'Ohio'}, then it would be incorrect.\n"
             )
         },
         {
@@ -54,6 +54,7 @@ def extract_pdf_questions(extracted_text: str, json_structure=json_templates.mul
                 f"Return a JSON object in this exact format: {{\"questions\": [/* {number_of_questions} question objects here */]}}\n"
                 "Each question must be meaningful, directly based on the text, and use a different part of the content.\n"
                 "Correct answers must be supported by the text or by the proper tool. Incorrect options must be plausible but wrong.\n"
+                "Make sure to follow all the rules provided in the system instructions. Do not fabricate any information or answers. If you cannot find an answer in the text, use the proper tool to get it, but do not make up answers. Always ensure that your final output is a valid JSON object that adheres strictly to the specified format and rules, including the correct way to set the correct answer.\n"
                 "Before writing any answer that involves a number or equation, use the correct tool -by examining the tool's description- to verify it. Do not trust your own math or problem solving. ALWAYS use the tool when needed.\n"
                 "NEVER make a question asking what the document contains or pertains to."
             )
@@ -62,7 +63,7 @@ def extract_pdf_questions(extracted_text: str, json_structure=json_templates.mul
 
     while True:
         response = ollama.chat(
-            model="llama3.2:3b",
+            model="llama3.1:8b",
             messages=messages,
             options={"temperature": 0.3},
             tools=ollama_tools.tools,

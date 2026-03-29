@@ -1,0 +1,66 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+  <link rel="stylesheet" href="/menus/main_menu/menu_style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=Quantico:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <!-----------------MAIN MENU--------------------->
+
+  <div class="homepage" id="top">
+    <header>
+      <h1>World of Cognia</h1>
+    </header>
+    <div class="bio homepage">
+      <p>Welcome to Cognia!</p>
+      <p>click to start!</p>
+      <button class="homepage" id="startBtn">
+        <nav>
+          <ul>
+            <li>Start!</li>
+          </ul>
+        </nav>
+      </button>
+    </div>
+  </div>
+    
+  <!-----------------UPLOAD MENU--------------------->
+  
+  <div class="upload" id="top">
+    <header>
+      <h1>Upload PDF Files</h1>
+    </header>
+    
+  </div>
+  
+  <div class="upload">
+    <div class="upload-form">
+        <label for="upload-notes">
+            Choose File(s)
+            <input type="file" id="upload-notes" name="upload-notes" multiple accept=".pdf">
+        </label>
+        
+        <label for="set-number-of-questions">
+            Number of Questions (max of 50)
+            <input type="number" id="set-number-of-questions" name="set-number-of-questions" min="1" max="50" value="1">
+        </label>
+    </div>
+  </div>
+
+  <div class="upload">
+    <button id="backBtn">
+      <nav>
+        <ul>
+          <li>Back</li>
+        </ul>
+      </nav>
+    </button>
+  </div>
+  <script type="module" src="notes_handling/file_handling.js"></script>
+  <script src='menus/main_menu/index.js'></script>
+
+</body>
+</html>

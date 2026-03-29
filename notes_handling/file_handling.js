@@ -27,12 +27,11 @@ async function handleFileUpload(result, formData) {
 
                 if (completed == jsonResult.files.length) {
                     //start game here
-                    
+                    window.location.href = '../game/battle.html';  // adjust path as needed
                 }
             });   
         });
-                
-        // add design features here
+      
 
         //alert(result.text);
         //console.log(formData);

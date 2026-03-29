@@ -18,7 +18,7 @@ except:
 
 @app.route('/')
 def index():
-    return send_file(os.path.join(root_dir, 'index.html'))
+    return send_file(os.path.join(root_dir, 'menus/main_menu/index.html'))
 
 @app.route('/create_questions', methods=['POST'])
 def question_upload_progress():
@@ -28,7 +28,7 @@ def question_upload_progress():
     file = files_dict.get(fileName)
 
     # add support question type and question difficulty after the hackothon
-    #questions_handling.add_questions(file, number_of_questions=int(numQuestions))
+    questions_handling.add_questions(file, number_of_questions=int(numQuestions))
 
     return "Success"
 

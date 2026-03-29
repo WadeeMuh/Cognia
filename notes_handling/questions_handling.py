@@ -13,8 +13,8 @@ def add_questions(file, number_of_questions=1, json_structure=extractor.json_tem
 
     print(f"Generating ({number_of_questions}) Questions For: {file.filename}\n")
 
-    questions = extractor.extract_pdf_questions(file_text, json_structure=json_structure, number_of_questions=number_of_questions)
+    new_questions = extractor.extract_pdf_questions(file_text, json_structure=json_structure, number_of_questions=number_of_questions)
 
-    print(f"Generated Questions ({number_of_questions}):", questions, "\n")
+    print(f"Generated Questions ({number_of_questions}):", new_questions, "\n")
 
-    return
+    return new_questions
